@@ -1,20 +1,35 @@
-# CSV-JSON-projects
-a number of project focused on CSV and JSON to automate problems
+# CSV-JSON-Projects
 
+A collection of Python projects focused on learning CSV and JSON processing, handling structured data, and building simple automation tools.
 
-# CSV Projects:
-This projects explain basic concepts of CSV by simple projects
+## CSV Projects
 
-# Project 0: Sales Lists Python
-This project uses built in data of dictionaries to display the products
-Displays integer prices as integer and floats with only 2 decimals
-It calculates the total price using a variable
+These projects cover the basics of working with CSV files, starting with simple data structures and progressing toward file reading and data analysis.
 
-# Priject 1: CSV Reader
-Opens a CSV file in the data folder.
-The CSV file has 3 keys of name, price and quantity
-Gives error if the file none existant.
-Uses DirectReader to read values in the csv file
-if there are values missing in the csv, it displays "N/A"
-If the price cannot be turn from str to float it sets to 0
-using f string it prints all products, with its name, price and quantity
+### Project 0: Sales List
+
+Uses a list of dictionaries to store and display product information.
+
+- Displays product names and prices.
+- Formats floating-point prices to two decimal places while keeping integer prices unchanged.
+- Calculates the total price of all products.
+
+### Project 1: CSV Reader
+
+Reads product information from a CSV file in the `data/` directory using Python's built-in `csv.DictReader`.
+
+- Reads product names, prices, and quantities.
+- Handles missing column values by displaying `"N/A"`.
+- Converts prices from strings to floating-point numbers.
+- Uses `0` as a fallback when a price cannot be converted.
+- Handles missing files with basic exception handling.
+- Formats prices to two decimal places.
+
+## Technologies
+
+- Python 3
+- Built-in `csv` module
+
+## Project Status
+
+This repository is a work in progress. More CSV and JSON projects will be added as I continue learning Python and developing practical automation skills.
