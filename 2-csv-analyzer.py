@@ -53,6 +53,14 @@ def average_product_price(products):
     average_price = average_price / len(products)
     print(f"\nThe average product price is ${average_price:.2f}")
 
+#find products lower than a chosen threshold
+def find_low_stock(products, threshold):
+    print("\n")
+    for product in products:
+        #find the products
+        if product['quantity'] < threshold:
+            print(f'{product['name']} is low in stock. Current quantity: {product['quantity']}')
+
 #run the functions
 all_products = load_products("data/products.csv")
 if all_products != None:
@@ -60,3 +68,4 @@ if all_products != None:
     calculate_inventory_value(all_products)
     average_product_price(all_products)
     most_expensive_product(all_products)
+    find_low_stock(products=all_products, threshold=3)
