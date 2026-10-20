@@ -24,7 +24,7 @@ def load_products(file_dir):
 
 #The total products number
 def total_product_count(products):
-    print(f"Total number of products: {len(products)}")
+    print(f"\nTotal number of products: {len(products)}")
 
 #The total value
 def calculate_inventory_value(products):
@@ -32,18 +32,31 @@ def calculate_inventory_value(products):
     for product in products:
         #add the total value
         total_value += product['price'] * product['quantity']
-    print(f"Total inventory value: ${total_value:.2f}")
+    print(f"\nTotal inventory value: ${total_value:.2f}")
 
 #The Most Expensive Product
+def most_expensive_product(products):
+    #calculate the max price
+    highest_price = max(products, key=lambda x: x["price"])['price']
+    #line breaker
+    print("\n")
+    for product in products:
+        if product['price'] >= highest_price:
+            print(f"The most expensive product is {product['name']} with the price of ${product['price']:.2f}")
+
+
+#The Average price of all products
 def average_product_price(products):
     average_price = 0
     for product in products:
         average_price += product['price']
     average_price = average_price / len(products)
-    print(f"The average product price is ${average_price:.2f}")
+    print(f"\nThe average product price is ${average_price:.2f}")
 
+#run the functions
 all_products = load_products("data/products.csv")
 if all_products != None:
     total_product_count(all_products)
     calculate_inventory_value(all_products)
     average_product_price(all_products)
+    most_expensive_product(all_products)
