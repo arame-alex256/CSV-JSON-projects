@@ -25,6 +25,19 @@ Reads product information from a CSV file in the `data/` directory using Python'
 - Handles missing files with basic exception handling.
 - Formats prices to two decimal places.
 
+### Project 2: CSV Analyzer
+
+orginizes the data from the CSV file using different Python's built-in functions and gives a structured output.
+
+- Filter the products, and skip products with issues such as missing a name value, negative or non-number value.
+- Stores the products into a list where name is a `str`, price is a `float` and quantity is an `int`.
+- Calculates the total number of products after the filter.
+- Calculates the total inventory value using price x quantity.
+- Calculates the highest price with `max()` function and match it with the products with the same price if there are products.
+- Calculates the average price of the all products if there are products.
+- Finds products that have lower qunatities than a chosen threshold value and returns a message if there was no such product.
+- Prevents from running the other functions in case of any error.
+
 ## Technologies
 
 - Python 3

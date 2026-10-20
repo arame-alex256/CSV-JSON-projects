@@ -57,10 +57,10 @@ def most_expensive_product(products):
     #calculate the max price
     highest_price = max(products, key=lambda x: x["price"])['price']
     #line breaker
-    print("\n")
+    print("\nThe most expensive product(s) is/are")
     for product in products:
-        if product['price'] >= highest_price:
-            print(f"The most expensive product is {product['name']} with the price of ${product['price']:.2f}")
+        if product['price'] == highest_price:
+            print(f"{product['name']} : ${highest_price:.2f}")
 
 
 #The Average price of all products
