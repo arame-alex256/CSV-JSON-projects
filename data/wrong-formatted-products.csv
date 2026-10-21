@@ -1,0 +1,26 @@
+name,price,quantity
+more,2,3,4,5
+not int,3,3.4
+space, 3, 4
+space+,     3      ,     4       
+
+empty row,3.9,3
+non val,                              ,5
+not enough,2,
+not enough+,
+enough not,,3
+same,3,3
+same,3,3
+format,a,3
+format+,3,a
+,3,5
+,,
+, ,
+,,5.6
+,,2,
+,-10,-2
+negative,-0,0
+negative+,3,-1
+
+apple,4.5,3
+banana,5.5,5
