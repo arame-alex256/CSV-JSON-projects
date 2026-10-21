@@ -28,6 +28,10 @@ def load_products(file_dir):
                     #Negative price or quantity
                     if price < 0 or quantity < 0 or price == -0 or quantity == -0:
                         raise ValueError("negative price or quantity")
+                    
+                    if name in [exsiting_data["name"] for exsiting_data in correct_products]:
+                        print(f"product '{name}' already exists in the file")
+                        continue
 
                 #other errors   
                 except ValueError as error:
