@@ -38,10 +38,28 @@ orginizes the data from the CSV file using different Python's built-in functions
 - Finds products that have lower qunatities than a chosen threshold value and returns a message if there was no such product.
 - Prevents from running the other functions in case of any error.
 
+### Project 3: CSV Cleaner
+
+A Python script that cleans and validates messy CSV product data, separating valid products from rows that contain errors.
+
+- Reads product data from a CSV file using `csv.DictReader`.
+- Removes unnecessary whitespace from product names, prices, and quantities.
+- Detects rows containing more than the expected number of values.
+- Identifies products with missing or empty names.
+- Validates prices and quantities by converting them to numeric types.
+- Rejects rows with non-numeric or invalid price and quantity values.
+- Rejects products with negative prices or quantities while allowing zero values.
+- Detects duplicate product names and keeps the first valid occurrence.
+- Separates valid products from rejected rows with explanations for each error.
+- Saves cleaned product data to `produced_files/clean_products.csv` using `csv.DictWriter`.
+- Saves rejected rows and their error messages to `produced_files/rejected_rows.csv`using `csv.DictWriter`.
+- Creates the output directory automatically with `path` and reports the number of accepted and rejected products.
+
 ## Technologies
 
 - Python 3
 - Built-in `csv` module
+- Built-in `path` module
 
 ## Project Status
 
