@@ -1,0 +1,18 @@
+name,error
+more,more than 3 values inserted
+not int,invalid literal for int() with base 10: '3.4'
+non val,could not convert string to float: ''
+not enough,invalid literal for int() with base 10: ''
+not enough+,could not convert string to float: ''
+enough not,could not convert string to float: ''
+same,duplicate product name
+format,could not convert string to float: 'a'
+format+,invalid literal for int() with base 10: 'a'
+Unknown,missing product name
+Unknown,could not convert string to float: ''
+Unknown,could not convert string to float: ''
+Unknown,could not convert string to float: ''
+Unknown,more than 3 values inserted
+Unknown,missing product name
+negative,negative price or quantity
+negative+,negative price or quantity
