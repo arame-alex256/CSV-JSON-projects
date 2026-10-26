@@ -1,5 +1,6 @@
 import csv
 from datetime import datetime
+from math import prod
 
 def load_products(file_dir):
     correct_products = []
@@ -39,15 +40,14 @@ def load_products(file_dir):
     #Return the products
     return correct_products
 
-#The total value
-def total_revenue(products):
-    total_value = 0
-    for product in products:
-        #add the total value
-        total_value += product['price'] * product['quantity']
-    print(f"\nTotal inventory value: ${total_value:.2f}")
+#The total Revenue, Sales Records, Units Sold
+def total_performance(products):
+    # Reported data using sum to callculate the total revenue and unit solds
+    print(f"\nTotal Sales Records: {len(products)}")
+    print(f"Total Units Sold: {sum(x["quantity"] for x in products)}")
+    print(f"Total Revenue: ${sum(y["quantity"] * y["price"] for y in products):.2f}")
 
 
 all_products = load_products("data/daily-list.csv")
 if all_products != None:
-    total_revenue(all_products)
+    total_performance(all_products)
