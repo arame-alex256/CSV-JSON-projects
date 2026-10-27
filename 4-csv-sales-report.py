@@ -31,7 +31,7 @@ def load_products(file_dir):
                 
                 #Save products with correct format
                 correct_products.append(
-                    {'date': date, 'name':name, 'price': price,'quantity': quantity})
+                    {'date': date_text, 'name':name, 'price': price,'quantity': quantity})
 
     except FileNotFoundError:
         print (f"Error: '{file_dir}' was not found.")
@@ -96,6 +96,27 @@ def top_performance(products):
     print(f"  Most Units Sold: {top_sold_names} ({most_sold} units)")
     print(f"  Highest Revenue: {top_revenue_names} (${highest_revenue:,.2f})")
     
+def daily_revenue(products):
+    if not products:
+        print("\nDAILY REVENUE\nNo valid products to show.")
+        return
+    # Group items by name
+    single_day = defaultdict(lambda: {'date': '', 'total_revenue': 0.0})
+    for product in products:
+        list_day = product['date']
+        # Inserting the first values if there isn't
+        if single_day[list_day]['date'] == '':
+            single_day[list_day]['date'] = list_day
+        # Calculate total quantity sold and revenue
+        single_day[list_day]['total_revenue'] += product['price'] * product['quantity']
+
+    daily_performance = list(single_day.values())
+    
+    print("\nDAILY REVENUE")
+    # Print all the daily performances
+    for day in daily_performance:
+        print(f"{day['date']}: ${day['total_revenue']:.2f}")
+
 
 
 all_products = load_products("data/daily-list.csv")
@@ -103,3 +124,4 @@ if all_products != None:
     total_performance(all_products)
     all_units = product_performance(all_products)
     top_performance(all_units)
+    daily_revenue(all_products)
