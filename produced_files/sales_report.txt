@@ -1,0 +1,38 @@
+================================
+          SALES REPORT
+================================
+
+OVERALL PERFORMANCE
+--------------------------------
+Total Sales Records: 5
+Total Units Sold: 15
+Total Revenue: $585.00
+
+PRODUCT PERFORMANCE
+--------------------------------
+
+Keyboard
+  Unit Sold: 5
+  Total Revenue: $225.00
+
+Mouse
+  Unit Sold: 9
+  Total Revenue: $180.00
+
+Monitor
+  Unit Sold: 1
+  Total Revenue: $180.00
+
+TOP PERFORMERS
+--------------------------------
+  Most Units Sold: Mouse (9 units)
+  Highest Revenue: Keyboard ($225.00)
+
+DAILY REVENUE
+--------------------------------
+2026-10-01: $235.00
+2026-10-02: $90.00
+2026-10-03: $260.00
+
+================================
+Report generated successfully on 2026-10-27
