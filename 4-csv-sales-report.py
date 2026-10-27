@@ -1,6 +1,6 @@
 import csv
 from datetime import datetime
-from math import prod
+from collections import defaultdict
 
 def load_products(file_dir):
     correct_products = []
@@ -43,11 +43,34 @@ def load_products(file_dir):
 #The total Revenue, Sales Records, Units Sold
 def total_performance(products):
     # Reported data using sum to callculate the total revenue and unit solds
+    print("SALES REPORT")
     print(f"\nTotal Sales Records: {len(products)}")
-    print(f"Total Units Sold: {sum(x["quantity"] for x in products)}")
-    print(f"Total Revenue: ${sum(y["quantity"] * y["price"] for y in products):.2f}")
+    print(f"Total Units Sold: {sum(x['quantity'] for x in products)}")
+    print(f"Total Revenue: ${sum(y['quantity'] * y['price'] for y in products):.2f}")
 
+#Individual Product performance
+def product_performance(products):
+    # Group items by name
+    single_units = defaultdict(lambda: {'name': '', 'price': 0.0, 'quantity': 0, 'total_revenue': 0.0})
+    for product in products:
+        product_name = product['name']
+        # Inserting the first values if there isn't
+        if single_units[product_name]['name'] == '':
+            single_units[product_name]['name'] = product_name
+            single_units[product_name]['price'] = product['price']
+        # Calculate total quantity sold and revenue
+        single_units[product_name]['quantity'] += product['quantity']
+        single_units[product_name]['total_revenue'] += product['price'] * product['quantity']
+
+    all_units = list(single_units.values())
+    print("\nPRODUCT PERFORMANCE")
+    for unit in all_units:
+        print(f"\n{unit['name']}")
+        print(f"  Unit Sold: {unit['quantity']}")
+        print(f"  Total Revenue: ${unit['total_revenue']:.2f}")
+    return all_units
 
 all_products = load_products("data/daily-list.csv")
 if all_products != None:
     total_performance(all_products)
+    all_units = product_performance(all_products)
