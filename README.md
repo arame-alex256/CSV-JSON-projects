@@ -2,9 +2,9 @@
 
 A collection of Python projects focused on learning CSV and JSON processing, handling structured data, and building simple automation tools.
 
-## CSV Projects
-
 These projects cover the basics of working with CSV files, starting with simple data structures and progressing toward file reading and data analysis.
+
+## Starter Python Project
 
 ### Project 0: Sales List
 
@@ -13,6 +13,8 @@ Uses a list of dictionaries to store and display product information.
 - Displays product names and prices.
 - Formats floating-point prices to two decimal places while keeping integer prices unchanged.
 - Calculates the total price of all products.
+
+## CSV Projects
 
 ### Project 1: CSV Reader
 
@@ -55,11 +57,32 @@ A Python script that cleans and validates messy CSV product data, separating val
 - Saves rejected rows and their error messages to `produced_files/rejected_rows.csv`using `csv.DictWriter`.
 - Creates the output directory automatically with `path` and reports the number of accepted and rejected products.
 
+### Project 4: CSV Sales Report
+
+- Reads daily product report from a CSV file using `csv.DictReader`. 
+- Gives Erros if there is no or an empty CSV file
+- Removes unnecessary whitespace from product names, prices, and quantities.
+- Identifies products with missing or empty names.
+- Identifies products with missing, empty, or invalid format dates.
+- Identifies products with missing, empty, negative, non-numeric or other invalid formats prices.
+- Identifies products with missing, empty, negative, non-numeric or other invalid quantities.
+- Saves rejected rows and correct products into a list
+- Creates a `.csv` file to store rejected products with their error
+- Creates a `.txt` file to store correct product's reported data
+- Callculates the **total number of records**, **quantities sold** and the **total revenue**
+- Groups individual products by their **total quantities sold** and the **total revenue** for each
+- Finds the top performed products which had the **highest quantities sold** and the **highest revenue produced**
+- Gives a daily report of revenue produced
+- Saves all of the Report in a `.txt` file
+
 ## Technologies
 
 - Python 3
 - Built-in `csv` module
 - Built-in `path` module
+- Built-in `math` module
+- Built-in `date` and `datetime` modules
+- Built-in `defaultdict` module
 
 ## Project Status
 
