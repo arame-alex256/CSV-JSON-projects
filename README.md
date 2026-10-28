@@ -29,7 +29,7 @@ Reads product information from a CSV file in the `data/` directory using Python'
 
 ### Project 2: CSV Analyzer
 
-orginizes the data from the CSV file using different Python's built-in functions and gives a structured output.
+Organizes the data from the CSV file using different Python's built-in functions and gives a structured output.
 
 - Filter the products, and skip products with issues such as missing a name value, negative or non-number value.
 - Stores the products into a list where name is a `str`, price is a `float` and quantity is an `int`.
@@ -37,7 +37,7 @@ orginizes the data from the CSV file using different Python's built-in functions
 - Calculates the total inventory value using price x quantity.
 - Calculates the highest price with `max()` function and match it with the products with the same price if there are products.
 - Calculates the average price of the all products if there are products.
-- Finds products that have lower qunatities than a chosen threshold value and returns a message if there was no such product.
+- Finds products that have lower quantities than a chosen threshold value and returns a message if there was no such product.
 - Prevents from running the other functions in case of any error.
 
 ### Project 3: CSV Cleaner
@@ -45,7 +45,7 @@ orginizes the data from the CSV file using different Python's built-in functions
 A Python script that cleans and validates messy CSV product data, separating valid products from rows that contain errors.
 
 - Reads product data from a CSV file using `csv.DictReader`.
-- Removes unnecessary whitespace from product names, prices, and quantities.
+- Removes unnecessary white space from product names, prices, and quantities.
 - Detects rows containing more than the expected number of values.
 - Identifies products with missing or empty names.
 - Validates prices and quantities by converting them to numeric types.
@@ -59,9 +59,11 @@ A Python script that cleans and validates messy CSV product data, separating val
 
 ### Project 4: CSV Sales Report
 
+A full Python workflow that get the information from a CSV file, gives a complete report with rejected rows.
+
 - Reads daily product report from a CSV file using `csv.DictReader`. 
-- Gives Erros if there is no or an empty CSV file
-- Removes unnecessary whitespace from product names, prices, and quantities.
+- Gives Errors if there is no or an empty CSV file
+- Removes unnecessary white space from product names, prices, and quantities.
 - Identifies products with missing or empty names.
 - Identifies products with missing, empty, or invalid format dates.
 - Identifies products with missing, empty, negative, non-numeric or other invalid formats prices.
