@@ -1,0 +1,6 @@
+{
+    "app_name": "My Python Tool",
+    "currency": "USD",
+    "stock_threshold": 5,
+    "show_summary": true
+}
