@@ -92,9 +92,9 @@ try:
             json.dump(current_settings, file, indent=4)
     while True:
         # Print the settings
-        print(f"Welcome to {current_settings['app_name']}")
+        print(f"\nWelcome to {current_settings['app_name']}")
         print("Current Settings")
-        print(f"1- Application name: {current_settings['app_name']}")
+        print(f"\n1- Application name: {current_settings['app_name']}")
         print(f"2- Currency: {current_settings['currency']}")
         print(f"3- low Stock Threshold: {current_settings['low_stock_threshold']}")
         print(f"4- Show Summary: {current_settings['show_summary']}")
@@ -103,53 +103,63 @@ try:
         user_input = input("\nEnter choice number: ")
         # App Name settings inputs
         if user_input == '1':
-            app_input = input("\nEnter an app name: ")
-            if not app_input:
-                print("Please enter a valid app name")
-            else:
-                current_settings["app_name"] = str(app_input)
-                update()
+            while True:
+                app_input = input("\nEnter an app name: ")
+                if not app_input:
+                    print("Please enter a valid app name")
+                else:
+                    current_settings["app_name"] = str(app_input).strip()
+                    update()
+                    break
 
         # Currency settings inputs
         elif user_input == '2':
-            cur_input = input("\nEnter a currency: ")
-            if not cur_input:
-                print("Please enter a valid currency")
-            else:
-                current_settings["currency"] = str(cur_input)
-                update()
+            while True:
+                cur_input = input("\nEnter a currency: ")
+                if not cur_input:
+                    print("Please enter a valid currency")
+                else:
+                    current_settings["currency"] = str(cur_input).strip()
+                    update()
+                    break
                 
         # Low stock threshold settings inputs
         elif user_input == '3':
-            lst_input = input("\nEnter the low stock threshold: ")
-            if not lst_input:
-                print("Please enter a valid number low stock threshold")
-            else:
-                try:
-                    lst_input = int(lst_input)
-                    if not math.isfinite(lst_input):
-                        print("Please enter a valid number for low stock threshold")
-                    elif low_stock_threshold < 0:
-                        print("Please enter a positive number for low stock threshold")
-                    current_settings["low_stock_threshold"] = int(lst_input)
-                    update()
-                except ValueError:
-                    print("Please enter a whole number low stock threshold")
+            while True:
+                lst_input = input("\nEnter the low stock threshold: ")
+                if not lst_input:
+                    print("Please enter a valid number low stock threshold")
+                else:
+                    try:
+                        lst_input = int(lst_input)
+                        if not math.isfinite(int(lst_input)):
+                            print("Please enter a valid number for low stock threshold")
+                        elif int(lst_input) < 0:
+                            print("Please enter a positive number for low stock threshold")
+                        else:
+                            current_settings["low_stock_threshold"] = int(lst_input)
+                            update()
+                            break
+                    except ValueError:
+                        print("Please enter a whole number low stock threshold")
 
         # Show summary settings input
         elif user_input == '4':
-            yesno = input("\nEnter yes/no for showing summary: ")
-            if not yesno:
-                print("Please enter a input")
-            else:
-                if yesno.lower == "yes":
-                    current_settings["show_summary"] = True
-                    update()
-                elif yesno.lower == "no":
-                    current_settings["show_summary"] = False
-                    update()
+            while True:
+                yesno = input("\nEnter yes/no for showing summary: ")
+                if not yesno:
+                    print("Please enter an input")
                 else:
-                    print("Please enter either yes or no")
+                    if yesno.strip().lower() == "yes":
+                        current_settings["show_summary"] = True
+                        update()
+                        break
+                    elif yesno.strip().lower() == "no":
+                        current_settings["show_summary"] = False
+                        update()
+                        break
+                    else:
+                        print("Please enter either yes or no")
 
         # Quie
         elif user_input == '5':
