@@ -18,6 +18,10 @@ current_settings = {}
 
 has_has_error = False
 
+def update():
+    with open(input_file, 'w') as file:
+        json.dump(current_settings, file, indent=4)
+
 try:
     with open(input_file, 'r') as file:
         # Load the JSON File as a dict
@@ -45,7 +49,7 @@ try:
             has_has_error = True
         else:
             try:
-                low_stock_threshold = float(low_stock_threshold)
+                low_stock_threshold = int(low_stock_threshold)
                 if not math.isfinite(low_stock_threshold):
                     low_stock_threshold = DEFAULT_SETTINGS["low_stock_threshold"]
                     has_error = True
@@ -83,17 +87,77 @@ try:
         }
     
     # Update the file with new settings
-    if has_error == True:
+    if has_error:
         with open(input_file, 'w') as file:
             json.dump(current_settings, file, indent=4)
+    while True:
+        # Print the settings
+        print(f"Welcome to {current_settings['app_name']}")
+        print("Current Settings")
+        print(f"1- Application name: {current_settings['app_name']}")
+        print(f"2- Currency: {current_settings['currency']}")
+        print(f"3- low Stock Threshold: {current_settings['low_stock_threshold']}")
+        print(f"4- Show Summary: {current_settings['show_summary']}")
+        print("5- Quit")
 
-    # Print the settings
-    print(f"Welcome to {app_name}")
-    print("Current Settings")
-    print(f"1- Application name: {app_name}")
-    print(f"2- Currency: {currency}")
-    print(f"3- low Stock Threshold: {low_stock_threshold}")
-    print(f"4- Show Summary: {show_summary}")
+        user_input = input("\nEnter choice number: ")
+        # App Name settings inputs
+        if user_input == '1':
+            app_input = input("\nEnter an app name: ")
+            if not app_input:
+                print("Please enter a valid app name")
+            else:
+                current_settings["app_name"] = str(app_input)
+                update()
+
+        # Currency settings inputs
+        elif user_input == '2':
+            cur_input = input("\nEnter a currency: ")
+            if not cur_input:
+                print("Please enter a valid currency")
+            else:
+                current_settings["currency"] = str(cur_input)
+                update()
+                
+        # Low stock threshold settings inputs
+        elif user_input == '3':
+            lst_input = input("\nEnter the low stock threshold: ")
+            if not lst_input:
+                print("Please enter a valid number low stock threshold")
+            else:
+                try:
+                    lst_input = int(lst_input)
+                    if not math.isfinite(lst_input):
+                        print("Please enter a valid number for low stock threshold")
+                    elif low_stock_threshold < 0:
+                        print("Please enter a positive number for low stock threshold")
+                    current_settings["low_stock_threshold"] = int(lst_input)
+                    update()
+                except ValueError:
+                    print("Please enter a whole number low stock threshold")
+
+        # Show summary settings input
+        elif user_input == '4':
+            yesno = input("\nEnter yes/no for showing summary: ")
+            if not yesno:
+                print("Please enter a input")
+            else:
+                if yesno.lower == "yes":
+                    current_settings["show_summary"] = True
+                    update()
+                elif yesno.lower == "no":
+                    current_settings["show_summary"] = False
+                    update()
+                else:
+                    print("Please enter either yes or no")
+
+        # Quie
+        elif user_input == '5':
+            print("Good bye!")
+            break
+        else:
+            print("Please enter a number between 1 and 5!")
+
 
 except FileNotFoundError:
     with open(input_file, 'w') as file:
