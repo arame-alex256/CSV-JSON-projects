@@ -1,6 +1,6 @@
 {
-    "app_name": "My App",
-    "currency": "New Money",
-    "low_stock_threshold": 2,
+    "app_name": "",
+    "currency": "USD",
+    "low_stock_threshold": 0,
     "show_summary": false
 }
