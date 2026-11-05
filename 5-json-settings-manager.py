@@ -107,7 +107,7 @@ try:
         if user_input == '1':
             while True:
                 app_input = input("\nEnter an app name: ")
-                if not app_input:
+                if not app_input or not app_input.strip():
                     print("Please enter a valid app name")
                 else:
                     current_settings["app_name"] = str(app_input).strip()
@@ -118,7 +118,7 @@ try:
         elif user_input == '2':
             while True:
                 cur_input = input("\nEnter a currency: ")
-                if not cur_input:
+                if not cur_input or not cur_input.strip():
                     print("Please enter a valid currency")
                 else:
                     current_settings["currency"] = str(cur_input).strip()
