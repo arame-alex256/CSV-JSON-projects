@@ -29,16 +29,18 @@ try:
         except ValueError:
             file_data = DEFAULT_SETTINGS
             has_error = True
-
-        
+        if not file_data:
+            file_data = DEFAULT_SETTINGS
+            has_error = True
+      
         # Get the individual settings
-        if type(file_data.get("app_name")) != str:
+        if type(file_data.get("app_name")) != str and file_data.get("app_name") is not None:
             app_name = (str(file_data.get("app_name")) or "").strip()
             has_error = True
         else:
             app_name = (file_data.get("app_name") or "").strip()
         
-        if type(file_data.get("currency")) != str:
+        if type(file_data.get("currency")) != str and file_data.get("currency") is not None: 
             currency = (str(file_data.get("currency")) or "").strip()
             has_error = True
         else:
@@ -53,31 +55,29 @@ try:
             has_error = True
 
         # Check if the low stock threshold is empty or not number or negative
+        if low_stock_threshold is None or low_stock_threshold == "" or type(low_stock_threshold) == float:
+            low_stock_threshold = DEFAULT_SETTINGS["low_stock_threshold"]
+            has_error = True
+
         try:
             low_stock_threshold = int(low_stock_threshold)
             if low_stock_threshold < 0:
                 low_stock_threshold = DEFAULT_SETTINGS["low_stock_threshold"]
                 has_error = True
-
         except ValueError:
             low_stock_threshold = DEFAULT_SETTINGS["low_stock_threshold"]
             has_error = True
 
         # Check if the currency is empty
+        
         if not currency:
             has_error = True
             currency = DEFAULT_SETTINGS["currency"]
-        else:
-            if type(currency) != str:
-                currency = str(currency)
-                has_error = True
 
         # Check if the show summary is empty or not bool
-        try:
-            show_summary = bool(show_summary)
-        except ValueError:
-            has_error = True
+        if type(show_summary) is not bool:
             show_summary = DEFAULT_SETTINGS["show_summary"]
+            has_error = True
 
         # Save the current data in the dict
         current_settings = {

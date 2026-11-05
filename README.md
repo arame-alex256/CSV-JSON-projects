@@ -77,10 +77,34 @@ A full Python workflow that get the information from a CSV file, gives a complet
 - Gives a daily report of revenue produced
 - Saves all of the Report in a `.txt` file
 
+## JSON Projects
+
+### Project 5: JSON Settings Manager
+
+A user terminal project, allows user to open a JSON file and change its settings.
+
+- Uses default value if a value is missing or the file is empty
+- Turn the app name into string if it's other value in JSON file
+- Turn the currency into string if it's other value in JSON file
+- Use default value if app name is empty
+- Use default value if currency is empty
+- Use default value if low stuck threshold is float, negative, invalid format or empty
+- Use default value if show summary is not a boolean
+- Save the input data into a dictionary
+- Print the values and get the user's input
+- Exits only if the user enter 5 as an input
+- Does not allow space as a valid input for app name
+- Does not allow space as a valid input for currency
+- Does not allow negative value as a valid input for low stuck threshold
+- Only allows yes or no as a valid input for show summary setting
+- If the user's input is invalid, runs untill it gets a valid input
+
 ## Technologies
 
 - Python 3
 - Built-in `csv` module
+- Built-in `json` module
+
 - Built-in `path` module
 - Built-in `math` module
 - Built-in `date` and `datetime` modules

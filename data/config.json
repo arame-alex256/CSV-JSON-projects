@@ -1,6 +1,6 @@
 {
-    "app_name": "App_Name",
+    "app_name": "123",
     "currency": "USD",
-    "low_stock_threshold": 4,
+    "low_stock_threshold": 10,
     "show_summary": true
 }
